@@ -16,6 +16,7 @@ And you can start MemoriseTests from cmd. For start from cmd you need:
 2. Navigate to the directory with pom.xml file for MemoriseTests project.
 3. Execute command
 >mvn test
+
 to start all tests with default parameters.
 4. Execution of UI tests should be started. By default using Firefox webdriver.
 5. At the end of testing you can see the result: BUILD FAILURE or BUILD SUCCESS and the report about testing.
@@ -24,6 +25,7 @@ to start all tests with default parameters.
 
 You can change the browser for tests. For example, use command
 >mvn -Dselenide.browser=chrome test
+
 for start tests in Chrome. 
 Please, find additional information in http://ru.selenide.org/faq.html
 
