@@ -21,6 +21,8 @@ to start all tests with default parameters.
 4. Execution of UI tests should be started. By default using Firefox webdriver.
 5. At the end of testing you can see the result: BUILD FAILURE or BUILD SUCCESS and the report about testing.
 
+NOTE: The longest test is Crawler test, which wait 100000 milliseconds for end of Crawler process. It should be changed in the future to the correct condition.
+
 ### Parameters for test execution
 
 You can change the browser for tests. For example, use command

@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.UUID;
+
 import static com.codeborne.selenide.Selenide.open;
 
 public class RegisterTest {
@@ -21,8 +23,8 @@ public class RegisterTest {
 
     @Test
     public void registerStandard() {
-        String login = "user_new";
-        String password = "user_new_password";
+        String login = "user_new" + Math.round(Math.random()*100000);
+        String password = "user_new_password" + Math.round(Math.random()*100000);
 
         RegisterPage.registerAsUser(login, password);
 
@@ -45,7 +47,8 @@ public class RegisterTest {
         RegisterPage.registerAsUser(login, password);
 
         Assert.assertTrue("There is no message about already existed user with the same login.",
-                RegisterPage.alertAboutRegistration().text().contains("User with the same name is already exist"));
+                RegisterPage.alertAboutRegistration().waitUntil(Condition.visible, PropertiesForTests.timeout)
+                            .text().contains("User with the same name is already exist"));
 
         Selenide.navigator.open("http://localhost:8080/#!/login");
         LoginPage.logInAsUser(login,password);

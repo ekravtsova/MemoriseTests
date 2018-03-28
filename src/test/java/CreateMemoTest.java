@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +38,8 @@ public class CreateMemoTest {
 
         MemoCreateAndEditPage.btn_MemoSave().click();
 
-        Assert.assertTrue("The memo page isn't opened after save new memo.", MemosPage.label_MemosPageTitle().isDisplayed());
+        Assert.assertTrue("The memo page isn't opened after save new memo.",
+                MemosPage.label_MemosPageTitle().waitUntil(Condition.visible, PropertiesForTests.timeout).isDisplayed());
 
         MemosPage.checkbox_Actual().setSelected(true);
 
